@@ -10,8 +10,10 @@ function raw(job, times, delay, ...args) {
       p.reject(e)
     }
   }
-  if(times < 1) // 必须写在 tryJob 定义之后，否则 tryJob 在 times == 1 的情况下，没有值
-    return p.resolve()
+  if(times < 1) { // 必须写在 tryJob 定义之后，否则 tryJob 在 times == 1 的情况下，没有值
+    p.resolve()
+    return p
+  }
   
   p.intervalID = setInterval(function(){
     p.tryJob()
@@ -24,8 +26,12 @@ function raw(job, times, delay, ...args) {
   return p
 }
 
-function interval(){
-
+function interval(job, times, delay, ...args){
+  times = times - 1
+  const p = raw(job, times, delay, ...args)
+  if(times >= 0)
+    p.tryJob()
+  return p
 }
 
 interval.raw = raw
