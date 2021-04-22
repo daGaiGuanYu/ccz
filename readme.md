@@ -39,4 +39,5 @@ async function main(){
 main()
 ```
 
-##### 先“暂停”两秒，执行一次；再每隔一秒执行一次，再等半秒，执行；再每隔两秒执行一次
+##### 先停一秒，再每秒执行一次，执行两次；再停两秒，每半秒执行一次，执行三次，再等一秒！
+[看这里](https://github.com/daGaiGuanYu/ccz/blob/master/example/index.js)
