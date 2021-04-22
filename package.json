@@ -1,0 +1,22 @@
+{
+  "name": "ccz",
+  "version": "0.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daGaiGuanYu/ccz.git"
+  },
+  "keywords": [
+    "timer"
+  ],
+  "author": "gy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daGaiGuanYu/ccz/issues"
+  },
+  "homepage": "https://github.com/daGaiGuanYu/ccz#readme"
+}
