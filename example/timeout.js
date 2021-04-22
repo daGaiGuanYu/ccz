@@ -1,9 +1,10 @@
-const timeout = require('../src/timeout')
+const timeout = require('ccz/timeout')
+const printTime = require('./util')
 
 async function main(){
-  console.log('开始')
+  printTime()
   await timeout(1000)
-  console.log('一秒之后')
+  printTime()
 }
 
 main()

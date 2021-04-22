@@ -1,16 +1,15 @@
-const interval = require('../src/interval')
+const interval = require('ccz/interval')
+const printTime = require('./util')
 
 async function main(){
-  let start = new Date()
-  console.log('开始')
-  let i = 0
+  printTime()
   await interval(
     function(){
-      console.log(i++)
+      printTime()
     },
-    5, 1000
+    3, 1000
   )
-  console.log('结束', (new Date() - start)/1000)
+  printTime()
 }
 
 main()
