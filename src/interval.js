@@ -10,6 +10,12 @@ function raw(job, times, delay, ...args) {
       p.reject(e)
     }
   }
+
+  p.stop = function(){
+    clearInterval(p.intervalID)
+    p.resolve()
+  }
+
   if(times < 1) { // 必须写在 tryJob 定义之后，否则 tryJob 在 times == 1 的情况下，没有值
     p.resolve()
     return p
@@ -17,10 +23,8 @@ function raw(job, times, delay, ...args) {
   
   p.intervalID = setInterval(function(){
     p.tryJob()
-    if(--times < 1) {
-      clearInterval(p.intervalID)
-      p.resolve()
-    }
+    if(--times < 1)
+      p.stop()
   }, delay)
 
   return p
