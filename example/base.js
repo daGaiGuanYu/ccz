@@ -1,4 +1,4 @@
-const base = require('../src/base')
+const base = require('ccz/base')
 
 const p = base()
 p.then(function(data){
