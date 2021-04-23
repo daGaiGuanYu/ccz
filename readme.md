@@ -56,7 +56,27 @@ main()
 ```
 
 ##### 先停一秒，再每秒执行一次，执行两次；再停两秒，每半秒执行一次，执行三次，再等一秒！
-[看这里](https://github.com/daGaiGuanYu/ccz/blob/master/example/index.js)
+``` js
+const { timeoutP, intervalP } = require('ccz')
+
+async function main(){
+  console.log('开始')
+  await timeoutP(1000) // 等一秒
+  await intervalP(
+    () => console.log('每秒一次，共两次'),
+    2, 1000)
+  
+  await timeoutP(2000) // 等两秒
+  await intervalP(
+    () => console.log('每半秒一次，共三次'),
+    3, 500)
+  await timeoutP(1000) // 等一秒
+  
+  console.log('结束')
+}
+
+main()
+```
 
 ##### 一秒执行 24 次
 ``` js
@@ -72,3 +92,6 @@ async function main(){
 
 main()
 ```
+
+# 放弃版权声明
+本仓库的所有代码可以免费复制、改造、使用、转载。署名也不需要。
