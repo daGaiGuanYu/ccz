@@ -80,11 +80,11 @@ main()
 
 ##### 一秒执行 24 次
 ``` js
-const byDurationTimesP = require('ccz/by-duration-times')
+const withoutIntervalP = require('ccz/without-interval')
 
 async function main(){
   console.log('开始')
-  await byDurationTimesP(1000, 24, () => {
+  await withoutIntervalP(1000, 24, () => {
     console.log('换帧')
   })
   console.log('结束')
