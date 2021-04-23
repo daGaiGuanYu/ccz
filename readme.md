@@ -43,12 +43,9 @@ const intervalP = require('ccz/interval')
 
 async function main(){
   console.log('开始')
-  await intervalP(
-    function(){
-      console.log('哈哈')
-    },
-    3, 1000
-  )
+  await intervalP(1000, 3, () => {
+    console.log('哈哈')
+  })
   console.log('结束')
 }
 
@@ -62,14 +59,14 @@ const { timeoutP, intervalP } = require('ccz')
 async function main(){
   console.log('开始')
   await timeoutP(1000) // 等一秒
-  await intervalP(
-    () => console.log('每秒一次，共两次'),
-    2, 1000)
+  await intervalP(1000, 2, () => {
+    console.log('每秒一次，共两次')
+  })
   
   await timeoutP(2000) // 等两秒
-  await intervalP(
-    () => console.log('每半秒一次，共三次'),
-    3, 500)
+  await intervalP(500, 3, () => {
+    console.log('每半秒一次，共三次')
+  })
   await timeoutP(1000) // 等一秒
   
   console.log('结束')

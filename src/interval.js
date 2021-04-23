@@ -1,6 +1,6 @@
 const getPromise = require('./base')
 
-function raw(job, times, delay, ...args) {
+function raw(interval, times, job, ...args) {
   const p = getPromise()
   p.tryJob = function(){
     try {
@@ -25,21 +25,21 @@ function raw(job, times, delay, ...args) {
     p.tryJob()
     if(--times < 1)
       p.stop()
-  }, delay)
+  }, interval)
 
   return p
 }
 
-function interval(job, times, delay, ...args){
+function intervalP(interval, times, job, ...args){
   times = times - 1
-  const p = raw(job, times, delay, ...args)
+  const p = raw(interval, times, job, ...args)
   if(times >= 0)
     p.tryJob()
   return p
 }
 
-interval.raw = raw
-// interval.continueOnError
-// interval.continueOnErrorRaw
+intervalP.raw = raw
+// intervalP.continueOnError
+// intervalP.continueOnErrorRaw
 
-module.exports = interval
+module.exports = intervalP

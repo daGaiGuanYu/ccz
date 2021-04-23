@@ -3,12 +3,7 @@ const printTime = require('./util')
 
 async function main(){
   printTime()
-  await interval(
-    function(){
-      printTime()
-    },
-    3, 1000
-  )
+  await interval(1000, 3, printTime)
   printTime()
 }
 
