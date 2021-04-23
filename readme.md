@@ -41,3 +41,18 @@ main()
 
 ##### 先停一秒，再每秒执行一次，执行两次；再停两秒，每半秒执行一次，执行三次，再等一秒！
 [看这里](https://github.com/daGaiGuanYu/ccz/blob/master/example/index.js)
+
+##### 一秒执行 24 次
+``` js
+const byDurationTimesP = require('ccz/by-duration-times')
+
+async function main(){
+  console.log('开始')
+  await byDurationTimesP(1000, 24, () => {
+    console.log('换帧')
+  })
+  console.log('结束')
+}
+
+main()
+```

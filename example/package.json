@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "ccz": "0.0.0"
+    "ccz": "file:../src/ccz-0.0.1.tgz"
   }
 }
