@@ -1,13 +1,27 @@
 # ccz
-丑丑仔。  
-如果你需要使用 setTimeout、setInterval，那可以试试丑丑仔。
+setTimeout、setInterval 是两个常用的异步函数。  
+但作为异步函数，他们不支持 ```Promise```或者 ```async/await```写法。  
+代码写起来：
+```js
+setTimeout(() => {
+  console.log('执行一些操作')
+  setTimeout(() => {
+    console.log('执行另一些操作')
+    // setTimeout ...
+  }, 3000)
+}, 1000)
+```
+不好看！
 
-# 安装
+丑丑仔的目的，就是使你的 setTimeout 和 setInterval 好看些。  
+
+# 使用
+### 安装
 ```bash
 npm install ccz
 ```
 
-# 例子
+### 例子
 ##### 程序“暂停”一秒
 ``` js
 const timeoutP = require('ccz/timeout')
@@ -16,6 +30,8 @@ async function main(){
   console.log('开始')
   await timeoutP(1000)
   console.log('一秒之后')
+  await timeoutP(2000)
+  console.log('又过了两秒')
 }
 
 main()
