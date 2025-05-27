@@ -1,5 +1,5 @@
 # ccz
-setTimeout、setInterval 是两个常用的异步函数。  
+setTimeout、setInterval 是两个常用的异步函数  
 但作为异步函数，他们不支持 ```Promise```或者 ```async/await```写法。  
 代码写起来：
 ```js
